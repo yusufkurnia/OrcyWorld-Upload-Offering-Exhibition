@@ -1,14 +1,11 @@
 import React, { useState, useRef } from 'react';
-import { ImageWithFallback } from './components/figma/ImageWithFallback';
 
-// Import images from Figma assets dengan fallback URL
-const figmaAssets = {
-  topLeft: "https://images.unsplash.com/photo-1628269999893-10b89d4ce324?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGNvcm5lciUyMGRlY29yYXRpdmUlMjBlbGVtZW50cyUyMGRhcmt8ZW58MXx8fHwxNzU5NDMyNTU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
-  topRight: "https://images.unsplash.com/photo-1628269999893-10b89d4ce324?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGNvcm5lciUyMGRlY29yYXRpdmUlMjBlbGVtZW50cyUyMGRhcmt8ZW58MXx8fHwxNzU5NDMyNTU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
-  sunLogo: "https://images.unsplash.com/photo-1621246475858-92fa411bb838?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcnRpc3RpYyUyMHN1biUyMGxvZ28lMjBnb2xkZW4lMjB5ZWxsb3d8ZW58MXx8fHwxNzU5NDMyNTUxfDA&ixlib=rb-4.1.0&q=80&w=1080",
-  bottomLeft: "https://images.unsplash.com/photo-1628269999893-10b89d4ce324?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGNvcm5lciUyMGRlY29yYXRpdmUlMjBlbGVtZW50cyUyMGRhcmt8ZW58MXx8fHwxNzU5NDMyNTU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
-  bottomRight: "https://images.unsplash.com/photo-1628269999893-10b89d4ce324?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGNvcm5lciUyMGRlY29yYXRpdmUlMjBlbGVtZW50cyUyMGRhcmt8ZW58MXx8fHwxNzU5NDMyNTU0fDA&ixlib=rb-4.1.0&q=80&w=1080"
-};
+// Import gambar Figma asli
+import imgTopLeft from "figma:asset/061af8973f677e8aed5b217bc1ec1e1f6d01c178.png";
+import imgTopRight from "figma:asset/306f84c00667e09b43a9b8c2ce230e88e8160cbf.png";
+import imgImg3647 from "figma:asset/7105fef6686ea050cf76287ceb3090bce5cafc52.png";
+import imgBottomLeft from "figma:asset/1d41e0bf3aedffac7d8b4098063ce1069bb9fd3f.png";
+import imgBottomRight from "figma:asset/54cfc412d0c93acc0ba718557c2b57ad12e85833.png";
 
 interface UploadedFile {
   id: string;
@@ -19,18 +16,18 @@ interface UploadedFile {
 function Top() {
   return (
     <div className="absolute flex items-start justify-between left-6 top-6 right-6 z-10" data-name="Top">
-      <div className="w-24 h-24 relative shrink-0" data-name="Top left">
-        <ImageWithFallback 
+      <div className="w-32 h-32 relative shrink-0" data-name="Top left">
+        <img 
           alt="" 
-          className="absolute inset-0 max-w-none object-cover pointer-events-none size-full opacity-80" 
-          src={figmaAssets.topLeft} 
+          className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" 
+          src={imgTopLeft} 
         />
       </div>
-      <div className="w-24 h-24 relative shrink-0" data-name="Top right">
-        <ImageWithFallback 
+      <div className="w-32 h-32 relative shrink-0" data-name="Top right">
+        <img 
           alt="" 
-          className="absolute inset-0 max-w-none object-cover pointer-events-none size-full opacity-80" 
-          src={figmaAssets.topRight} 
+          className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" 
+          src={imgTopRight} 
         />
       </div>
     </div>
@@ -50,7 +47,7 @@ function Frame3({ isUploading }: { isUploading: boolean }) {
 function Frame4({ onClick, isUploading }: { onClick: () => void; isUploading: boolean }) {
   return (
     <div 
-      className="bg-[#ffde00] border-2 border-[#e0aa36] flex items-center justify-center px-6 py-3 rounded-lg cursor-pointer transition-all duration-200 hover:bg-[#e6c84a] disabled:opacity-50 disabled:cursor-not-allowed relative"
+      className="bg-[#ffde00] border border-[#e0aa36] flex items-center justify-center px-6 py-3 rounded-lg cursor-pointer transition-all duration-200 hover:bg-[#e6c84a] disabled:opacity-50 disabled:cursor-not-allowed relative"
       onClick={onClick}
       style={{ opacity: isUploading ? 0.7 : 1 }}
     >
@@ -67,11 +64,11 @@ function Frame4({ onClick, isUploading }: { onClick: () => void; isUploading: bo
 function Frame5({ onUploadClick, isUploading }: { onUploadClick: () => void; isUploading: boolean }) {
   return (
     <div className="flex flex-col gap-4 items-center w-full max-w-sm mx-auto">
-      <div className="w-64 h-48 relative" data-name="IMG_3647">
-        <ImageWithFallback 
+      <div className="w-72 h-56 relative" data-name="IMG_3647">
+        <img 
           alt="Sun Logo" 
-          className="absolute inset-0 max-w-none object-contain pointer-events-none size-full" 
-          src={figmaAssets.sunLogo} 
+          className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" 
+          src={imgImg3647} 
         />
       </div>
       <Frame4 onClick={onUploadClick} isUploading={isUploading} />
@@ -82,7 +79,7 @@ function Frame5({ onUploadClick, isUploading }: { onUploadClick: () => void; isU
 function Frame7({ uploadedFiles }: { uploadedFiles: UploadedFile[] }) {
   return (
     <div className="flex-1 w-full overflow-hidden">
-      <div className="h-full overflow-y-auto overflow-x-hidden pr-2" style={{ maxHeight: 'calc(100vh - 300px)' }}>
+      <div className="h-full overflow-y-auto overflow-x-hidden pr-2" style={{ maxHeight: 'calc(100vh - 340px)' }}>
         <div className="flex flex-col font-['Cabin_Sketch:Regular',_sans-serif] gap-2 text-[#ffde00] items-center">
           {uploadedFiles.map((file, index) => (
             <p 
@@ -103,9 +100,9 @@ function Frame7({ uploadedFiles }: { uploadedFiles: UploadedFile[] }) {
 
 function ContentNoUpload({ onUploadClick, isUploading }: { onUploadClick: () => void; isUploading: boolean }) {
   return (
-    <div className="absolute flex flex-col gap-12 items-center left-1/2 top-20 w-80 -translate-x-1/2" data-name="Content">
+    <div className="absolute flex flex-col gap-12 items-center left-1/2 top-24 w-80 -translate-x-1/2" data-name="Content">
       <Frame5 onUploadClick={onUploadClick} isUploading={isUploading} />
-      <p className="font-['Cabin_Sketch:Regular',_sans-serif] text-[#ffde00] text-center w-full">
+      <p className="font-['Cabin_Sketch:Regular',_sans-serif] text-[#ffde00] text-xl text-center w-full">
         No offerings uploaded yet
       </p>
     </div>
@@ -118,7 +115,7 @@ function ContentUploaded({ onUploadClick, isUploading, uploadedFiles }: {
   uploadedFiles: UploadedFile[] 
 }) {
   return (
-    <div className="absolute flex flex-col gap-6 items-center left-1/2 overflow-hidden top-20 w-[90vw] max-w-4xl -translate-x-1/2" style={{ height: 'calc(100vh - 120px)' }} data-name="Content">
+    <div className="absolute flex flex-col gap-6 items-center left-1/2 overflow-hidden top-24 w-[90vw] max-w-4xl -translate-x-1/2" style={{ height: 'calc(100vh - 160px)' }} data-name="Content">
       <Frame5 onUploadClick={onUploadClick} isUploading={isUploading} />
       <div className="flex-1 w-full pb-5">
         <Frame7 uploadedFiles={uploadedFiles} />
@@ -129,18 +126,18 @@ function ContentUploaded({ onUploadClick, isUploading, uploadedFiles }: {
 
 function Bottom() {
   return (
-    <div className="absolute flex items-end justify-between left-6 bottom-6 right-6 h-32" data-name="Bottom">
-      <div className="w-24 h-24 relative shrink-0" data-name="Bottom left">
+    <div className="absolute flex items-end justify-between left-6 bottom-6 right-6 h-40" data-name="Bottom">
+      <div className="w-44 h-40 relative shrink-0" data-name="Bottom left">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <ImageWithFallback 
+          <img 
             alt="" 
-            className="absolute max-w-none w-full h-full object-cover opacity-80" 
-            src={figmaAssets.bottomLeft} 
+            className="absolute h-[159.2%] left-0 max-w-none top-[-23.4%] w-full" 
+            src={imgBottomLeft} 
           />
         </div>
       </div>
 
-      <p className="font-['Cabin_Sketch:Regular',_sans-serif] text-[#ffde00] text-xs text-center flex-1 mx-4 hidden sm:block">
+      <p className="font-['Cabin_Sketch:Regular',_sans-serif] text-[#ffde00] text-sm text-center flex-1 mx-4 hidden md:block">
         <span>© 2025 by </span>
         <a className="underline cursor-pointer" href="https://www.instagram.com/orcyworld/">
           ORCYWORLD | Gilang Anom Manapu Manik
@@ -151,12 +148,12 @@ function Bottom() {
         </a>
       </p>
 
-      <div className="w-24 h-24 relative shrink-0" data-name="Bottom right">
+      <div className="w-44 h-40 relative shrink-0" data-name="Bottom right">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <ImageWithFallback 
+          <img 
             alt="" 
-            className="absolute max-w-none w-full h-full object-cover opacity-80" 
-            src={figmaAssets.bottomRight} 
+            className="absolute h-[159.2%] left-0 max-w-none top-[-31.53%] w-full" 
+            src={imgBottomRight} 
           />
         </div>
       </div>
