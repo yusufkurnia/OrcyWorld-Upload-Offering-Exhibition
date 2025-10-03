@@ -1,11 +1,11 @@
 import React, { useState, useRef } from 'react';
 
 // Import gambar Figma asli
-import imgTopLeft from "figma:asset/061af8973f677e8aed5b217bc1ec1e1f6d01c178.png";
-import imgTopRight from "figma:asset/306f84c00667e09b43a9b8c2ce230e88e8160cbf.png";
-import imgImg3647 from "figma:asset/7105fef6686ea050cf76287ceb3090bce5cafc52.png";
-import imgBottomLeft from "figma:asset/1d41e0bf3aedffac7d8b4098063ce1069bb9fd3f.png";
-import imgBottomRight from "figma:asset/54cfc412d0c93acc0ba718557c2b57ad12e85833.png";
+import imgTopLeft from "./assets/061af8973f677e8aed5b217bc1ec1e1f6d01c178.png";
+import imgTopRight from "./assets/306f84c00667e09b43a9b8c2ce230e88e8160cbf.png";
+import imgImg3647 from "./assets/7105fef6686ea050cf76287ceb3090bce5cafc52.png";
+import imgBottomLeft from "./assets/1d41e0bf3aedffac7d8b4098063ce1069bb9fd3f.png";
+import imgBottomRight from "./assets/54cfc412d0c93acc0ba718557c2b57ad12e85833.png";
 
 interface UploadedFile {
   id: string;
